@@ -78,7 +78,7 @@ st.markdown(
 # --- Sekcja: Konfiguracja API i danych ---
 
 # Konfiguracja API OpenAI
-OPENAI_API_KEY = os.getenv("TEST_KEY_OPENAI_API")
+OPENAI_API_KEY = st.secrets["TEST_KEY_OPENAI_API"]
 if not OPENAI_API_KEY:
     raise EnvironmentError("Ustaw TEST_KEY_OPENAI_API w zmiennych środowiskowych")
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
@@ -86,17 +86,27 @@ client = openai.OpenAI(api_key=OPENAI_API_KEY)
 # Google Sheets Configuration
 GDRIVE_SHEET_ID = "1R47dD1SaAWIRCQkuYfLveHXtXJAWJEk18J2m1kbyHUo" # Your Google Sheet ID
 
-# Utworzenie klienta GSpread raz na start
-_creds_info = json.loads(st.secrets["GDRIVE_CREDENTIALS_JSON"])
+# ZAMIANA: budujemy creds z wielu st.secrets zamiast z JSON-stringa
+creds_info = {
+    "type": st.secrets["GDRIVE_TYPE"],
+    "project_id": st.secrets["GDRIVE_PROJECT_ID"],
+    "private_key_id": st.secrets["GDRIVE_PRIVATE_KEY_ID"],
+    "private_key": st.secrets["GDRIVE_PRIVATE_KEY"],
+    "client_email": st.secrets["GDRIVE_CLIENT_EMAIL"],
+    "client_id": st.secrets["GDRIVE_CLIENT_ID"],
+    "auth_uri": st.secrets["GDRIVE_AUTH_URI"],
+    "token_uri": st.secrets["GDRIVE_TOKEN_URI"],
+    "auth_provider_x509_cert_url": st.secrets["GDRIVE_AUTH_PROVIDER_CERT_URL"],
+    "client_x509_cert_url": st.secrets["GDRIVE_CLIENT_CERT_URL"]
+}
 _gspread_creds = Credentials.from_service_account_info(
-    _creds_info,
+    creds_info,
     scopes=[
-      "https://www.googleapis.com/auth/spreadsheets",
-      "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/spreadsheets",
+        "https://www.googleapis.com/auth/drive",
     ],
 )
 _gspread_client = gspread.authorize(_gspread_creds)
-
 # --- Sekcja: Dane eksperymentalne i stałe konfiguracje ---
 
 # Pytania do kwestionariusza TIPI-PL
@@ -239,39 +249,16 @@ def get_previous_groups_from_gsheet() -> List[str]:
         List[str]: A list of group assignments from the Google Sheet.
     """
     try:
-        # Uwierzytelnienie i połączenie z Arkuszem Google
-        scopes = [
-            'https://www.googleapis.com/auth/spreadsheets',
-            'https://www.googleapis.com/auth/drive'
-        ]
-        
+        sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
 
-        # Check if client is authorized and has the expected method
-        if client is None:
-             st.error("Błąd autoryzacji Google Sheets: Obiekt klienta jest nieprawidłowy.")
-             st.warning("Prosimy sprawdzić dane uwierzytelniające i konfigurację.")
-             return [] # Return empty list on error
-
-
-        sheet = client.open_by_key(GDRIVE_SHEET_ID).sheet1 # Otwórz pierwszy arkusz
-
-        # Read data from the 'group' column (assuming it's the 4th column, index 3)
-        # Read all values from column 4 (D)
         group_column_values = sheet.col_values(4)
-
-        # Exclude the header row if it exists
         if group_column_values and group_column_values[0].lower() == 'group':
             return group_column_values[1:]
         return group_column_values
 
-    except FileNotFoundError:
-        st.error(f"Błąd: Plik danych uwierzytelniających Google Sheets nie został znaleziony pod ścieżką: {GDRIVE_CREDENTIALS_PATH}")
-        st.warning("Upewnij się, że plik credentials.json znajduje się w głównym katalogu projektu.")
-        return [] # Return empty list on error
     except Exception as e:
         st.error(f"Wystąpił błąd podczas wczytywania danych z Arkusza Google: {e}")
-        st.warning("Prosimy spróbować ponownie lub skontaktować się z administratorem.")
-        return [] # Return empty list on error
+        return []
 
 
 # Funkcja do przypisywania grupy eksperymentalnej
@@ -995,13 +982,8 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
             Zbiera wszystkie dane z sesji i zapisuje je do Arkusza Google.
             """
             try:
-                # Uwierzytelnienie i połączenie z Arkuszem Google
-                scopes = [
-                    'https://www.googleapis.com/auth/spreadsheets',
-                    'https://www.googleapis.com/auth/drive'
-                ]
-                
-                sheet = client.open_by_key(GDRIVE_SHEET_ID).sheet1 # Otwórz pierwszy arkusz
+                # ZAMIANA → zawsze globalny _gspread_client
+                sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
 
                 # Przygotowanie danych do zapisu
                 # Collect all data from session_state
@@ -1060,9 +1042,6 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
 
                 st.session_state.current_step = 7
 
-            except FileNotFoundError:
-                st.error(f"Błąd: Plik danych uwierzytelniających Google Sheets nie został znaleziony pod ścieżką: {GDRIVE_CREDENTIALS_PATH}")
-                st.warning("Upewnij się, że plik credentials.json znajduje się w głównym katalogu projektu.")
             except Exception as e:
                 st.error(f"Wystąpił błąd podczas zapisu danych do Arkusza Google: {e}")
                 st.warning("Prosimy spróbować ponownie lub skontaktować się z administratorem.")
