@@ -85,7 +85,17 @@ client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 # Google Sheets Configuration
 GDRIVE_SHEET_ID = "1R47dD1SaAWIRCQkuYfLveHXtXJAWJEk18J2m1kbyHUo" # Your Google Sheet ID
-GDRIVE_CREDENTIALS_PATH = "credentials.json" # Path to your service account key file
+
+# Utworzenie klienta GSpread raz na start
+_creds_info = json.loads(st.secrets["GDRIVE_CREDENTIALS_JSON"])
+_gspread_creds = Credentials.from_service_account_info(
+    _creds_info,
+    scopes=[
+      "https://www.googleapis.com/auth/spreadsheets",
+      "https://www.googleapis.com/auth/drive",
+    ],
+)
+_gspread_client = gspread.authorize(_gspread_creds)
 
 # --- Sekcja: Dane eksperymentalne i stałe konfiguracje ---
 
@@ -234,7 +244,7 @@ def get_previous_groups_from_gsheet() -> List[str]:
             'https://www.googleapis.com/auth/spreadsheets',
             'https://www.googleapis.com/auth/drive'
         ]
-        client = gspread.service_account(filename=GDRIVE_CREDENTIALS_PATH)
+        
 
         # Check if client is authorized and has the expected method
         if client is None:
@@ -990,7 +1000,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
                     'https://www.googleapis.com/auth/spreadsheets',
                     'https://www.googleapis.com/auth/drive'
                 ]
-                client = gspread.service_account(filename=GDRIVE_CREDENTIALS_PATH)
+                
                 sheet = client.open_by_key(GDRIVE_SHEET_ID).sheet1 # Otwórz pierwszy arkusz
 
                 # Przygotowanie danych do zapisu
