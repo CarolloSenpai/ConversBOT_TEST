@@ -1,0 +1,7 @@
+streamlit
+openai
+numpy
+faiss-cpu
+sentence-transformers
+gspread
+google-auth
