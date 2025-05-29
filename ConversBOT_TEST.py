@@ -455,44 +455,148 @@ liczbą przy poszczególnych stwierdzeniach, do jakiego stopnia zgadzasz się lu
 z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
         """)
 
+        # st.markdown("""
+        #             <table style="
+        #                 width: 100%;
+        #                 border-collapse: collapse;
+        #                 margin: 1rem auto;
+        #                 text-align: center;
+        #             ">
+        #             <thead>
+        #                 <tr style="border-bottom:1px solid #ccc;">
+        #                     <!--tekst poziomo po odkomentowaniu
+        #                     <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
+        #                     <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
+        #                     <th style="padding: 8px; text-align: center;">W niewielkim stopniu się nie zgadzam</th>
+        #                     <th style="padding: 8px; text-align: center;">Ani się zgadzam, ani się nie zgadzam</th>
+        #                     <th style="padding: 8px; text-align: center;">W niewielkim stopniu się zgadzam</th>
+        #                     <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
+        #                     <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
+        #                     -->
+        #                     <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Zdecydowanie się nie zgadzam</div></th>
+        #                     <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Raczej się nie zgadzam</div></th>
+        #                     <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">W niewielkim stopniu się nie zgadzam</div></th>
+        #                     <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Ani się zgadzam, ani się nie zgadzam</div></th>
+        #                     <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">W niewielkim stopniu się zgadzam</div></th>
+        #                     <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Raczej się zgadzam</div></th>
+        #                     <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Zdecydowanie się zgadzam</div></th>
+        #                 </tr>
+        #             </thead>
+        #             <tbody>
+        #                 <tr>
+        #                 <td style="padding: 8px; text-align: center;"><strong>1</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>2</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>3</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>4</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>5</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>6</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>7</strong></td>
+        #                 </tr>
+        #             </tbody>
+        #             </table>
+        # """, unsafe_allow_html=True)
         st.markdown("""
                     <table style="
                         width: 100%;
+                        table-layout: fixed;
                         border-collapse: collapse;
                         margin: 1rem auto;
                         text-align: center;
                     ">
-                    <thead>
-                        <tr style="border-bottom:1px solid #ccc;">
-                            <!--tekst poziomo po odkomentowaniu
-                            <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
-                            <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
-                            <th style="padding: 8px; text-align: center;">W niewielkim stopniu się nie zgadzam</th>
-                            <th style="padding: 8px; text-align: center;">Ani się zgadzam, ani się nie zgadzam</th>
-                            <th style="padding: 8px; text-align: center;">W niewielkim stopniu się zgadzam</th>
-                            <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
-                            <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
-                            -->
-                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Zdecydowanie się nie zgadzam</div></th>
-                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Raczej się nie zgadzam</div></th>
-                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">W niewielkim stopniu się nie zgadzam</div></th>
-                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Ani się zgadzam, ani się nie zgadzam</div></th>
-                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">W niewielkim stopniu się zgadzam</div></th>
-                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Raczej się zgadzam</div></th>
-                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Zdecydowanie się zgadzam</div></th>
+                      <colgroup>
+                        <col style="width:14.285%">
+                        <col style="width:14.285%">
+                        <col style="width:14.285%">
+                        <col style="width:14.285%">
+                        <col style="width:14.285%">
+                        <col style="width:14.285%">
+                        <col style="width:14.285%">
+                      </colgroup>
+                      <thead>
+                        <tr style="border-bottom:1px solid #ccc; height:140px;">
+                          <th style="padding:0">
+                            <div style="
+                              transform:rotate(-90deg);
+                              transform-origin: bottom left;
+                              white-space: nowrap;
+                              padding:8px 0;
+                            ">
+                              Zdecydowanie się nie zgadzam
+                            </div>
+                          </th>
+                          <th style="padding:0">
+                            <div style="
+                              transform:rotate(-90deg);
+                              transform-origin: bottom left;
+                              white-space: nowrap;
+                              padding:8px 0;
+                            ">
+                              Raczej się nie zgadzam
+                            </div>
+                          </th>
+                          <th style="padding:0">
+                            <div style="
+                              transform:rotate(-90deg);
+                              transform-origin: bottom left;
+                              white-space: nowrap;
+                              padding:8px 0;
+                            ">
+                              W niewielkim stopniu się nie zgadzam
+                            </div>
+                          </th>
+                          <th style="padding:0">
+                            <div style="
+                              transform:rotate(-90deg);
+                              transform-origin: bottom left;
+                              white-space: nowrap;
+                              padding:8px 0;
+                            ">
+                              Ani się zgadzam, ani się nie zgadzam
+                            </div>
+                          </th>
+                          <th style="padding:0">
+                            <div style="
+                              transform:rotate(-90deg);
+                              transform-origin: bottom left;
+                              white-space: nowrap;
+                              padding:8px 0;
+                            ">
+                              W niewielkim stopniu się zgadzam
+                            </div>
+                          </th>
+                          <th style="padding:0">
+                            <div style="
+                              transform:rotate(-90deg);
+                              transform-origin: bottom left;
+                              white-space: nowrap;
+                              padding:8px 0;
+                            ">
+                              Raczej się zgadzam
+                            </div>
+                          </th>
+                          <th style="padding:0">
+                            <div style="
+                              transform:rotate(-90deg);
+                              transform-origin: bottom left;
+                              white-space: nowrap;
+                              padding:8px 0;
+                            ">
+                              Zdecydowanie się zgadzam
+                            </div>
+                          </th>
                         </tr>
-                    </thead>
-                    <tbody>
+                      </thead>
+                      <tbody>
                         <tr>
-                        <td style="padding: 8px; text-align: center;"><strong>1</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>2</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>3</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>4</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>5</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>6</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>7</strong></td>
+                          <td style="padding: 8px;"><strong>1</strong></td>
+                          <td style="padding: 8px;"><strong>2</strong></td>
+                          <td style="padding: 8px;"><strong>3</strong></td>
+                          <td style="padding: 8px;"><strong>4</strong></td>
+                          <td style="padding: 8px;"><strong>5</strong></td>
+                          <td style="padding: 8px;"><strong>6</strong></td>
+                          <td style="padding: 8px;"><strong>7</strong></td>
                         </tr>
-                    </tbody>
+                      </tbody>
                     </table>
         """, unsafe_allow_html=True)
 
