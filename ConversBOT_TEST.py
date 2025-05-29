@@ -497,80 +497,79 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
         # """, unsafe_allow_html=True)
         st.markdown("""
                     <table style="
-                        width: 100%;
-                        border-collapse: collapse;
-                        margin: 1rem auto;
-                        text-align: center;
-                        table-layout: auto;  /* pozwala kolumnom dostosować szerokość */
+                        width:100%;
+                        border-collapse:collapse;
+                        margin:1rem auto;
+                        table-layout:auto;
                     ">
                       <thead>
                         <tr style="border-bottom:1px solid #ccc;">
                           <th style="padding:8px; vertical-align:bottom;">
                             <div style="
-                              display: inline-block;
-                              transform: rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
+                              display:inline-block;
+                              transform:rotate(-90deg);
+                              transform-origin:bottom left;
+                              white-space:nowrap;
                             ">
                               Zdecydowanie się nie zgadzam
                             </div>
                           </th>
                           <th style="padding:8px; vertical-align:bottom;">
                             <div style="
-                              display: inline-block;
-                              transform: rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
+                              display:inline-block;
+                              transform:rotate(-90deg);
+                              transform-origin:bottom left;
+                              white-space:nowrap;
                             ">
                               Raczej się nie zgadzam
                             </div>
                           </th>
                           <th style="padding:8px; vertical-align:bottom;">
                             <div style="
-                              display: inline-block;
-                              transform: rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
+                              display:inline-block;
+                              transform:rotate(-90deg);
+                              transform-origin:bottom left;
+                              white-space:nowrap;
                             ">
                               W niewielkim stopniu się nie zgadzam
                             </div>
                           </th>
                           <th style="padding:8px; vertical-align:bottom;">
                             <div style="
-                              display: inline-block;
-                              transform: rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
+                              display:inline-block;
+                              transform:rotate(-90deg);
+                              transform-origin:bottom left;
+                              white-space:nowrap;
                             ">
                               Ani się zgadzam, ani się nie zgadzam
                             </div>
                           </th>
                           <th style="padding:8px; vertical-align:bottom;">
                             <div style="
-                              display: inline-block;
-                              transform: rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
+                              display:inline-block;
+                              transform:rotate(-90deg);
+                              transform-origin:bottom left;
+                              white-space:nowrap;
                             ">
                               W niewielkim stopniu się zgadzam
                             </div>
                           </th>
                           <th style="padding:8px; vertical-align:bottom;">
                             <div style="
-                              display: inline-block;
-                              transform: rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
+                              display:inline-block;
+                              transform:rotate(-90deg);
+                              transform-origin:bottom left;
+                              white-space:nowrap;
                             ">
                               Raczej się zgadzam
                             </div>
                           </th>
                           <th style="padding:8px; vertical-align:bottom;">
                             <div style="
-                              display: inline-block;
-                              transform: rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
+                              display:inline-block;
+                              transform:rotate(-90deg);
+                              transform-origin:bottom left;
+                              white-space:nowrap;
                             ">
                               Zdecydowanie się zgadzam
                             </div>
@@ -579,13 +578,13 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
                       </thead>
                       <tbody>
                         <tr>
-                          <td style="padding:8px;"><strong>1</strong></td>
-                          <td style="padding:8px;"><strong>2</strong></td>
-                          <td style="padding:8px;"><strong>3</strong></td>
-                          <td style="padding:8px;"><strong>4</strong></td>
-                          <td style="padding:8px;"><strong>5</strong></td>
-                          <td style="padding:8px;"><strong>6</strong></td>
-                          <td style="padding:8px;"><strong>7</strong></td>
+                          <td style="padding:8px;text-align:center;"><strong>1</strong></td>
+                          <td style="padding:8px;text-align:center;"><strong>2</strong></td>
+                          <td style="padding:8px;text-align:center;"><strong>3</strong></td>
+                          <td style="padding:8px;text-align:center;"><strong>4</strong></td>
+                          <td style="padding:8px;text-align:center;"><strong>5</strong></td>
+                          <td style="padding:8px;text-align:center;"><strong>6</strong></td>
+                          <td style="padding:8px;text-align:center;"><strong>7</strong></td>
                         </tr>
                       </tbody>
                     </table>
