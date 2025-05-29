@@ -473,41 +473,13 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
                             <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
                             <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
                             -->
-                            <th style="padding:8px; text-align:center; width: 50px;">
-                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
-                                Zdecydowanie się nie zgadzam
-                              </div>
-                            </th>
-                            <th style="padding:8px; text-align:center; width: 50px;">
-                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
-                                Raczej się nie zgadzam
-                              </div>
-                            </th>
-                            <th style="padding:8px; text-align:center; width: 50px;">
-                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
-                                W niewielkim stopniu się nie zgadzam
-                              </div>
-                            </th>
-                            <th style="padding:8px; text-align:center; width: 50px;">
-                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
-                                Ani się zgadzam, ani się nie zgadzam
-                              </div>
-                            </th>
-                            <th style="padding:8px; text-align:center; width: 50px;">
-                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
-                                W niewielkim stopniu się zgadzam
-                              </div>
-                            </th>
-                            <th style="padding:8px; text-align:center; width: 50px;">
-                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
-                                Raczej się zgadzam
-                              </div>
-                            </th>
-                            <th style="padding:8px; text-align:center; width: 50px;">
-                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
-                                Zdecydowanie się zgadzam
-                              </div>
-                            </th>
+                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Zdecydowanie się nie zgadzam</div></th>
+                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Raczej się nie zgadzam</div></th>
+                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">W niewielkim stopniu się nie zgadzam</div></th>
+                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Ani się zgadzam, ani się nie zgadzam</div></th>
+                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">W niewielkim stopniu się zgadzam</div></th>
+                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Raczej się zgadzam</div></th>
+                            <th style="padding:8px; vertical-align:bottom; width:50px; height:120px;"><div style="transform:rotate(-90deg);transform-origin:bottom left;white-space:nowrap;">Zdecydowanie się zgadzam</div></th>
                         </tr>
                     </thead>
                     <tbody>
