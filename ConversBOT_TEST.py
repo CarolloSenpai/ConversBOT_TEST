@@ -496,29 +496,85 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
         #             </table>
         # """, unsafe_allow_html=True)
         st.markdown("""
-                    <table style="width: 100%; border-collapse: collapse; table-layout: fixed; margin: 1rem auto; text-align: center;">
+                    <table style="border-collapse: collapse; margin: 1rem auto; table-layout: auto; text-align: center;">
                       <thead>
                         <tr>
-                          <th style="height: 200px;">
-                            <div style="transform: rotate(-90deg); transform-origin: bottom left; white-space: nowrap; height: 200px; display: flex; align-items: flex-end; justify-content: center;">Zdecydowanie się nie zgadzam</div>
+                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                            <div style="
+                              position: absolute;
+                              bottom: 0; left: 50%;
+                              transform: translateX(-50%) rotate(-90deg);
+                              transform-origin: bottom center;
+                              white-space: nowrap;
+                            ">
+                              Zdecydowanie się nie zgadzam
+                            </div>
                           </th>
-                          <th style="height: 200px;">
-                            <div style="transform: rotate(-90deg); transform-origin: bottom left; white-space: nowrap; height: 200px; display: flex; align-items: flex-end; justify-content: center;">Raczej się nie zgadzam</div>
+                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                            <div style="
+                              position: absolute;
+                              bottom: 0; left: 50%;
+                              transform: translateX(-50%) rotate(-90deg);
+                              transform-origin: bottom center;
+                              white-space: nowrap;
+                            ">
+                              Raczej się nie zgadzam
+                            </div>
                           </th>
-                          <th style="height: 200px;">
-                            <div style="transform: rotate(-90deg); transform-origin: bottom left; white-space: nowrap; height: 200px; display: flex; align-items: flex-end; justify-content: center;">W niewielkim stopniu się nie zgadzam</div>
+                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                            <div style="
+                              position: absolute;
+                              bottom: 0; left: 50%;
+                              transform: translateX(-50%) rotate(-90deg);
+                              transform-origin: bottom center;
+                              white-space: nowrap;
+                            ">
+                              W niewielkim stopniu się nie zgadzam
+                            </div>
                           </th>
-                          <th style="height: 200px;">
-                            <div style="transform: rotate(-90deg); transform-origin: bottom left; white-space: nowrap; height: 200px; display: flex; align-items: flex-end; justify-content: center;">Ani się zgadzam, ani się nie zgadzam</div>
+                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                            <div style="
+                              position: absolute;
+                              bottom: 0; left: 50%;
+                              transform: translateX(-50%) rotate(-90deg);
+                              transform-origin: bottom center;
+                              white-space: nowrap;
+                            ">
+                              Ani się zgadzam, ani się nie zgadzam
+                            </div>
                           </th>
-                          <th style="height: 200px;">
-                            <div style="transform: rotate(-90deg); transform-origin: bottom left; white-space: nowrap; height: 200px; display: flex; align-items: flex-end; justify-content: center;">W niewielkim stopniu się zgadzam</div>
+                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                            <div style="
+                              position: absolute;
+                              bottom: 0; left: 50%;
+                              transform: translateX(-50%) rotate(-90deg);
+                              transform-origin: bottom center;
+                              white-space: nowrap;
+                            ">
+                              W niewielkim stopniu się zgadzam
+                            </div>
                           </th>
-                          <th style="height: 200px;">
-                            <div style="transform: rotate(-90deg); transform-origin: bottom left; white-space: nowrap; height: 200px; display: flex; align-items: flex-end; justify-content: center;">Raczej się zgadzam</div>
+                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                            <div style="
+                              position: absolute;
+                              bottom: 0; left: 50%;
+                              transform: translateX(-50%) rotate(-90deg);
+                              transform-origin: bottom center;
+                              white-space: nowrap;
+                            ">
+                              Raczej się zgadzam
+                            </div>
                           </th>
-                          <th style="height: 200px;">
-                            <div style="transform: rotate(-90deg); transform-origin: bottom left; white-space: nowrap; height: 200px; display: flex; align-items: flex-end; justify-content: center;">Zdecydowanie się zgadzam</div>
+                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                            <div style="
+                              position: absolute;
+                              bottom: 0; left: 50%;
+                              transform: translateX(-50%) rotate(-90deg);
+                              transform-origin: bottom center;
+                              white-space: nowrap;
+                            ">
+                              Zdecydowanie się zgadzam
+                            </div>
                           </th>
                         </tr>
                       </thead>
