@@ -464,22 +464,50 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
                     ">
                     <thead>
                         <tr style="border-bottom:1px solid #ccc;">
-                        <!--tekst poziomo po odkomentowaniu
-                        <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">W niewielkim stopniu się nie zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Ani się zgadzam, ani się nie zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">W niewielkim stopniu się zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
-                        -->
-                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Zdecydowanie się nie zgadzam</th>
-                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Raczej się nie zgadzam</th>
-                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">W niewielkim stopniu się nie zgadzam</th>
-                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Ani się zgadzam, ani się nie zgadzam</th>
-                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">W niewielkim stopniu się zgadzam</th>
-                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Raczej się zgadzam</th>
-                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Zdecydowanie się zgadzam</th>
+                            <!--tekst poziomo po odkomentowaniu
+                            <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">W niewielkim stopniu się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Ani się zgadzam, ani się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">W niewielkim stopniu się zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
+                            -->
+                            <th style="padding:8px; text-align:center; width: 50px;">
+                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
+                                Zdecydowanie się nie zgadzam
+                              </div>
+                            </th>
+                            <th style="padding:8px; text-align:center; width: 50px;">
+                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
+                                Raczej się nie zgadzam
+                              </div>
+                            </th>
+                            <th style="padding:8px; text-align:center; width: 50px;">
+                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
+                                W niewielkim stopniu się nie zgadzam
+                              </div>
+                            </th>
+                            <th style="padding:8px; text-align:center; width: 50px;">
+                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
+                                Ani się zgadzam, ani się nie zgadzam
+                              </div>
+                            </th>
+                            <th style="padding:8px; text-align:center; width: 50px;">
+                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
+                                W niewielkim stopniu się zgadzam
+                              </div>
+                            </th>
+                            <th style="padding:8px; text-align:center; width: 50px;">
+                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
+                                Raczej się zgadzam
+                              </div>
+                            </th>
+                            <th style="padding:8px; text-align:center; width: 50px;">
+                              <div style="display:inline-block; transform: rotate(-90deg); transform-origin: center;">
+                                Zdecydowanie się zgadzam
+                              </div>
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
