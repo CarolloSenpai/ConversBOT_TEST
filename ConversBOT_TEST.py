@@ -498,103 +498,44 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
         st.markdown("""
                     <table style="
                         width: 100%;
-                        table-layout: fixed;
                         border-collapse: collapse;
                         margin: 1rem auto;
                         text-align: center;
                     ">
-                      <colgroup>
-                        <col style="width:14.285%">
-                        <col style="width:14.285%">
-                        <col style="width:14.285%">
-                        <col style="width:14.285%">
-                        <col style="width:14.285%">
-                        <col style="width:14.285%">
-                        <col style="width:14.285%">
-                      </colgroup>
                       <thead>
-                        <tr style="border-bottom:1px solid #ccc; height:140px;">
-                          <th style="padding:0">
-                            <div style="
-                              transform:rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
-                              padding:8px 0;
-                            ">
-                              Zdecydowanie się nie zgadzam
-                            </div>
+                        <tr style="border-bottom:1px solid #ccc;">
+                          <th style="padding:8px; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;">
+                            Zdecydowanie się nie zgadzam
                           </th>
-                          <th style="padding:0">
-                            <div style="
-                              transform:rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
-                              padding:8px 0;
-                            ">
-                              Raczej się nie zgadzam
-                            </div>
+                          <th style="padding:8px; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;">
+                            Raczej się nie zgadzam
                           </th>
-                          <th style="padding:0">
-                            <div style="
-                              transform:rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
-                              padding:8px 0;
-                            ">
-                              W niewielkim stopniu się nie zgadzam
-                            </div>
+                          <th style="padding:8px; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;">
+                            W niewielkim stopniu się nie zgadzam
                           </th>
-                          <th style="padding:0">
-                            <div style="
-                              transform:rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
-                              padding:8px 0;
-                            ">
-                              Ani się zgadzam, ani się nie zgadzam
-                            </div>
+                          <th style="padding:8px; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;">
+                            Ani się zgadzam, ani się nie zgadzam
                           </th>
-                          <th style="padding:0">
-                            <div style="
-                              transform:rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
-                              padding:8px 0;
-                            ">
-                              W niewielkim stopniu się zgadzam
-                            </div>
+                          <th style="padding:8px; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;">
+                            W niewielkim stopniu się zgadzam
                           </th>
-                          <th style="padding:0">
-                            <div style="
-                              transform:rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
-                              padding:8px 0;
-                            ">
-                              Raczej się zgadzam
-                            </div>
+                          <th style="padding:8px; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;">
+                            Raczej się zgadzam
                           </th>
-                          <th style="padding:0">
-                            <div style="
-                              transform:rotate(-90deg);
-                              transform-origin: bottom left;
-                              white-space: nowrap;
-                              padding:8px 0;
-                            ">
-                              Zdecydowanie się zgadzam
-                            </div>
+                          <th style="padding:8px; writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;">
+                            Zdecydowanie się zgadzam
                           </th>
                         </tr>
                       </thead>
                       <tbody>
                         <tr>
-                          <td style="padding: 8px;"><strong>1</strong></td>
-                          <td style="padding: 8px;"><strong>2</strong></td>
-                          <td style="padding: 8px;"><strong>3</strong></td>
-                          <td style="padding: 8px;"><strong>4</strong></td>
-                          <td style="padding: 8px;"><strong>5</strong></td>
-                          <td style="padding: 8px;"><strong>6</strong></td>
-                          <td style="padding: 8px;"><strong>7</strong></td>
+                          <td style="padding:8px;"><strong>1</strong></td>
+                          <td style="padding:8px;"><strong>2</strong></td>
+                          <td style="padding:8px;"><strong>3</strong></td>
+                          <td style="padding:8px;"><strong>4</strong></td>
+                          <td style="padding:8px;"><strong>5</strong></td>
+                          <td style="padding:8px;"><strong>6</strong></td>
+                          <td style="padding:8px;"><strong>7</strong></td>
                         </tr>
                       </tbody>
                     </table>
