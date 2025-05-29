@@ -464,6 +464,7 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
                     ">
                     <thead>
                         <tr style="border-bottom:1px solid #ccc;">
+                        <!--tekst poziomo po odkomentowaniu
                         <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
                         <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
                         <th style="padding: 8px; text-align: center;">W niewielkim stopniu się nie zgadzam</th>
@@ -471,6 +472,14 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
                         <th style="padding: 8px; text-align: center;">W niewielkim stopniu się zgadzam</th>
                         <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
                         <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
+                        -->
+                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Zdecydowanie się nie zgadzam</th>
+                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Raczej się nie zgadzam</th>
+                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">W niewielkim stopniu się nie zgadzam</th>
+                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Ani się zgadzam, ani się nie zgadzam</th>
+                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">W niewielkim stopniu się zgadzam</th>
+                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Raczej się zgadzam</th>
+                        <th style="padding:8px;border:1px solid #444;writing-mode:vertical-rl;text-orientation:upright;white-space:nowrap;text-align:center;">Zdecydowanie się zgadzam</th>
                         </tr>
                     </thead>
                     <tbody>
