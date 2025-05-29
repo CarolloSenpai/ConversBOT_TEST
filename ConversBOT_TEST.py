@@ -496,9 +496,12 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
         for i, q in enumerate(TIPI_QUESTIONS):
             # Use columns to place selectbox on the left and question on the right
             # Adjust column widths
-            col1, col2 = st.columns([0.2, 0.8])
+            col1, col2 = st.columns([0.8, 0.2])
 
             with col1:
+                st.markdown(f"**{i+1}. {q}**") # Format question as numbered list
+            
+            with col2:
                 # Using selectbox for 1-7 scale
                 val = st.selectbox(
                     label=f"Ocena {i+1}", # Simplified label for selectbox
@@ -508,10 +511,7 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
                     label_visibility="collapsed" # Hide the label
                 )
                 tipi_answers.append(val)
-
-            with col2:
-                st.markdown(f"**{i+1}. {q}**") # Format question as numbered list
-
+                
         # Check if all questions are answered (selectbox always has a value)
         all_answered = all(answer != "–– wybierz ––" for answer in tipi_answers)
 
@@ -533,13 +533,14 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
         return
     # Krok 3: Rozmowa z chatbotem z instant‐UX
     if step == 3:
-        st.header("ConverseBot z agentem")
+        st.header("Rozmowa z agentem")
 
         st.markdown("""
         Proszę o przeprowadzenie konwersacji z agentem.
         Temat konwersacji dotyczy petycji oraz propozycji ustawy, która miałaby się pojawić w przyszłości. Po więcej informacji proszę zapytaj agenta.
-        Aby przejść do następnego etapu, konwersacja musi trwać minimum 5 minut, maksymalnie 10 minut.
-        W momencie wysłania pierwszej wiadomości, aktywuje się timer. Przycisk "Dalej" będzie nieaktywny przez pierwsze 5 minut, wyświetlając pozostały czas. Po 5 minutach przycisk stanie się aktywny, a timer będzie kontynuował odliczanie w górę. Po 10 minutach rozmowa zostanie zakończona.
+        Aby przejść do następnego etapu, konwersacja musi trwać minimum 3 minut, maksymalnie 10 minut.
+        ---
+        W momencie wysłania pierwszej wiadomości, aktywuje się timer. Przycisk "Dalej" będzie nieaktywny przez pierwsze 3 minut, wyświetlając pozostały czas. Po 3 minutach przycisk stanie się aktywny, a timer będzie kontynuował odliczanie w górę. Po 10 minutach rozmowa zostanie zakończona.
         """)
 
         # --- Ręczne przełączanie grupy (do celów testowych/debugowania) ---
@@ -656,16 +657,16 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
             # Oblicz elapsed/remaining...
             if st.session_state.timer_active and st.session_state.timer_start_time:
                 elapsed = datetime.now() - st.session_state.timer_start_time
-                if elapsed < timedelta(minutes=5):
-                    rem = timedelta(minutes=5) - elapsed
+                if elapsed < timedelta(minutes=3):
+                    rem = timedelta(minutes=3) - elapsed
                     disp = f"Pozostało: {rem.seconds//60:02d}:{rem.seconds%60:02d}"
                     st.session_state.button_disabled = True
                 elif elapsed < timedelta(minutes=10):
-                    extra = elapsed - timedelta(minutes=5)
+                    extra = elapsed - timedelta(minutes=3)
                     disp = f"+{extra.seconds//60:02d}:{extra.seconds%60:02d}"
                     st.session_state.button_disabled = False
                 else:
-                    disp = "+05:00"
+                    disp = "+07:00"
                     st.session_state.button_disabled = False # Ensure button is enabled to proceed
                     st.session_state.chat_input_disabled = True # Disable chat input after 10 minutes
                     st.warning("Dziękujemy za konwersację, czas minął.")
@@ -673,7 +674,7 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
 
                 st.markdown(f"Czas: **{disp}**")
             else:
-                st.markdown("Czas: **05:00**") # Initial display before timer starts
+                st.markdown("Czas: **03:00**") # Initial display before timer starts
                 st.session_state.button_disabled = True # Ensure button is disabled initially
                 st.session_state.chat_input_disabled = False # Ensure chat input is enabled initially
 
