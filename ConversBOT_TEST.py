@@ -498,79 +498,72 @@ z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
         st.markdown("""
                     <table style="border-collapse: collapse; margin: 1rem auto; table-layout: auto; text-align: center;">
                       <thead>
-                        <tr>
-                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                        <tr style="border-bottom:1px solid #444;">
+                          <th style="padding:1em; vertical-align: bottom;">
                             <div style="
-                              position: absolute;
-                              bottom: 0; left: 50%;
-                              transform: translateX(-50%) rotate(-90deg);
-                              transform-origin: bottom center;
+                              display: inline-block;
+                              transform: rotate(-90deg);
+                              transform-origin: left bottom;
                               white-space: nowrap;
                             ">
                               Zdecydowanie się nie zgadzam
                             </div>
                           </th>
-                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                          <th style="padding:1em; vertical-align: bottom;">
                             <div style="
-                              position: absolute;
-                              bottom: 0; left: 50%;
-                              transform: translateX(-50%) rotate(-90deg);
-                              transform-origin: bottom center;
+                              display: inline-block;
+                              transform: rotate(-90deg);
+                              transform-origin: left bottom;
                               white-space: nowrap;
                             ">
                               Raczej się nie zgadzam
                             </div>
                           </th>
-                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                          <th style="padding:1em; vertical-align: bottom;">
                             <div style="
-                              position: absolute;
-                              bottom: 0; left: 50%;
-                              transform: translateX(-50%) rotate(-90deg);
-                              transform-origin: bottom center;
+                              display: inline-block;
+                              transform: rotate(-90deg);
+                              transform-origin: left bottom;
                               white-space: nowrap;
                             ">
                               W niewielkim stopniu się nie zgadzam
                             </div>
                           </th>
-                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                          <th style="padding:1em; vertical-align: bottom;">
                             <div style="
-                              position: absolute;
-                              bottom: 0; left: 50%;
-                              transform: translateX(-50%) rotate(-90deg);
-                              transform-origin: bottom center;
+                              display: inline-block;
+                              transform: rotate(-90deg);
+                              transform-origin: left bottom;
                               white-space: nowrap;
                             ">
                               Ani się zgadzam, ani się nie zgadzam
                             </div>
                           </th>
-                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                          <th style="padding:1em; vertical-align: bottom;">
                             <div style="
-                              position: absolute;
-                              bottom: 0; left: 50%;
-                              transform: translateX(-50%) rotate(-90deg);
-                              transform-origin: bottom center;
+                              display: inline-block;
+                              transform: rotate(-90deg);
+                              transform-origin: left bottom;
                               white-space: nowrap;
                             ">
                               W niewielkim stopniu się zgadzam
                             </div>
                           </th>
-                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                          <th style="padding:1em; vertical-align: bottom;">
                             <div style="
-                              position: absolute;
-                              bottom: 0; left: 50%;
-                              transform: translateX(-50%) rotate(-90deg);
-                              transform-origin: bottom center;
+                              display: inline-block;
+                              transform: rotate(-90deg);
+                              transform-origin: left bottom;
                               white-space: nowrap;
                             ">
                               Raczej się zgadzam
                             </div>
                           </th>
-                          <th style="position: relative; padding: 0; vertical-align: bottom; height: 8em;">
+                          <th style="padding:1em; vertical-align: bottom;">
                             <div style="
-                              position: absolute;
-                              bottom: 0; left: 50%;
-                              transform: translateX(-50%) rotate(-90deg);
-                              transform-origin: bottom center;
+                              display: inline-block;
+                              transform: rotate(-90deg);
+                              transform-origin: left bottom;
                               white-space: nowrap;
                             ">
                               Zdecydowanie się zgadzam
