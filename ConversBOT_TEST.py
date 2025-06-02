@@ -151,7 +151,7 @@ DEFAULT_MODEL: str = "gpt-3.5-turbo"
 # Tekst zgody na udział w badaniu
 CONSENT_TEXT: str = """
 
-# Tytuł badania: Badanie doświadczeń użytkowników w interakcji z agentem AI
+#Badanie doświadczeń użytkowników w interakcji z agentem AI
 
 ---
 
