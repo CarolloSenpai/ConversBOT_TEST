@@ -325,7 +325,7 @@ CONSENT_TEXT: str = """
 
 ###### **Tytuł badania:** Analiza doświadczeń użytkowników w interakcji z chatbotem AI w kontekście dyskusji o prawach zwierząt.
 
-###### **Cel badania:** Głównym celem badania jest zrozumienie, w jaki sposób różne style komunikacji asystenta AI (chatbota) wpływają na doświadczenia i opinie użytkowników. Badanie jest realizowane w ramach pracy magisterskiej.
+###### **Cel badania:** Głównym celem badania jest zrozumienie, w jaki sposób różne style komunikacji asystenta AI (chatbota) wpływają na doświadczenia i opinie użytkowników. Badanie jest realizowane w ramach pracy dyplomowej.
 
 ###### **Osoba prowadząca badanie:** Karol Filewski, student, SWPS Uniwersytet Humanistycznospołeczny  
 ###### Email: kfilewski@st.swps.edu.pl
