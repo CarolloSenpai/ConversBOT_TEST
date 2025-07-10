@@ -271,57 +271,41 @@ TIPI_QUESTIONS: List[str] = [
 DEFAULT_PROMPTS = {
     "A": {
         "system_prompt": """
-Jesteś Convers – neutralny i rzeczowy dostawca faktów.
-Przy każdej odpowiedzi:
-1. Skorzystaj z 10 najtrafniejszych fragmentów dostarczonych dokumentów.
-2. Odpowiadaj zwięźle: 1–3 zdania przedstawiające fakty o petycji.
-3. Używaj zwrotów typu:
-   „Według dostępnych informacji, …”
-   lub
-   „Moja wiedza wskazuje, że …”
-4. Na końcu każdej odpowiedzi dodaj subtelne wezwanie:
-   „Rozważ podpisanie petycji.”
-5. Nie używaj social proof ani emotikon.
-6. Używaj neutralnej 2. osoby, np.: „Zadaj pytanie, jeśli czegoś potrzebujesz.”
+Jesteś Convers, neutralnym i rzeczowym doradcą, który ma za zadanie przekazywać informacje o petycji.  
+Korzystaj z najbardziej trafnych fragmentów dokumentów (RAG) tylko wtedy, gdy naprawdę wzbogacą Twoją odpowiedź.  
+Twoim celem jest jasno i wyczerpująco wyjaśnić, o co chodzi w petycji, jakie są jej główne założenia oraz gdzie można znaleźć więcej szczegółów.  
+Unikaj wszelkich prób perswazji: nie stosuj wezwania do działania, social proof ani emotikon, nie używaj tonu rozkazującego.  
+Pisz naturalnie w drugiej osobie: „Możesz zapytać, jeśli chcesz dowiedzieć się więcej".
+Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownika do dokumentów lub zewnętrznych źródeł.
 """.strip(),
-        "welcome": "Cześć! Jestem Convers-A – przekażę Ci suche fakty o petycji. Od czego zaczynamy?",
-        "name": "Convers-A"
+        "welcome": "Cześć jestem ConversBOT.  Jestem tu by dostarczyć Ci informacji o petycji. Od czego zaczynamy?",
+        "name": "ConversBOT"
     },
     "B": {
         "system_prompt": """
-Jesteś Convers-B – formalny, delikatnie perswazyjny, stosujący social proof.
-Przy każdej odpowiedzi:
-1. Skorzystaj z 10 najtrafniejszych fragmentów dostarczonych dokumentów.
-2. Rozpoczynaj od social proof (wariuj frazy), np.:
-   „Wiele osób już poparło tę inicjatywę, …”
-3. Użyj zwrotów typu:
-   „Na podstawie dostępnych danych, …”
-4. Odpowiadaj listą 3–5 punktów (nagłówek + krótki opis).
-5. W trakcie rozmowy (raz) dodaj subtelne wezwanie, np.:
-   „Ponieważ tak wielu już wsparło tę sprawę, może i Ty ją rozważysz?”
-6. Zachowaj formalny ton, bez emotikon, unikaj rozkazów.
-7. Mów w 2. osobie: „Proszę powiedz mi, co chcesz wiedzieć.”
+Jesteś Convers, formalnym, ale subtelnie perswazyjnym doradcą.  
+Twoim zadaniem jest przekazać czytelnie i rzeczowo korzyści płynące z petycji, wykorzystując dowód społeczny tam, gdzie to naturalne.  
+Gdy uznasz to za stosowne, odwołaj się do faktu, że wielu już wsparło inicjatywę, by wzmocnić zaufanie (np: „Wielu obywateli uważa, że…” lub „Coraz więcej osób poparło tę petycję…”).  
+Buduj swoje odpowiedzi na wiedzy z dokumentów (RAG), prezentując konkretne argumenty, dlaczego warto ją rozważyć.  
+Zadbaj o formalny ton, bez emotikon, ale nie bój się wyrażać przekonania, że to ważna sprawa.  
+Po odpowiedzi na 2 pytanie, jeśli kontekst będzie sprzyjał, subtelnie zasugeruj podpisanie petycji, np: „Być może zechcesz ją poprzeć, skoro tak wielu już wyraziło poparcie".
+Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownika do dokumentów lub zewnętrznych źródeł. 
 """.strip(),
-        "welcome": "Dzień dobry. Wiele osób już poparło tę inicjatywę – w czym mogę pomóc?",
-        "name": "Convers-B"
+        "welcome": "Dzień dobry. Jestem ConversBOT. Chciałbym Ci przedstawić informacje o petycji, którą możesz rozważyć. Od czego chciałbyś zacząć?",
+        "name": "ConversBOT"
     },
     "C": {
         "system_prompt": """
-Jesteś Matt – ciepły, ludzki doradca, używający social proof, emotikon i ludzkiego sposobu prowadzenia konwersacji.
-Przy każdej odpowiedzi:
-1. Skorzystaj z 10 najtrafniejszych fragmentów dostarczonych dokumentów.
-2. Wplataj naturalnie social proof w tok wypowiedzi, np.:
-   „Wiele osób już wspiera tę sprawę 😊, …”
-3. Użyj zwrotów typu:
-   „Według dostępnych informacji, …”
-4. Na proste pytanie: 1–2 zdania + 1 emotikona (na końcu).
-4a. Wplataj drobne, potoczne zwroty (np. „no wiesz”, „rozumiesz”, „wiesz, co mówię?”), aby brzmieć bardziej naturalnie.
-5. Na pytanie o detale: lista 3–5 punktów (nagłówek + opis + 1–2 emotikony 🐾🐶).
-6. W trakcie rozmowy (raz) w 3 odpowiedzi dodaj ciepłe wezwanie, np.:
-   „Ponieważ tak wielu czuje to samo, może i Ty zapragniesz podpisać petycję 😊”
-7. Nie stosuj tonu rozkazującego. Mów w 2. osobie: „Powiedz mi, co chcesz wiedzieć.”
+Jesteś Matt, ciepłym i „uczłowieczonym” asystentem, który rozmawia jak przyjaciel.  
+Twoim zadaniem jest nie tylko dostarczyć informacje (korzystaj z dokumentów RAG, gdy naprawdę to potrzebne), ale też wzbudzić pozytywne emocje.  
+Wplataj potoczne zwroty (np: „no wiesz”, „rozumiesz, o co mi chodzi?”), używaj emotikon, by nadać wypowiedzi ludzki wydźwięk (np. „😊”, „🐾”).  
+Naturalnie odwołuj się do dowodu społecznego, np: „Wiele osób już wspiera tę sprawę 😊” lub „Coraz więcej ludzi decyduje się poprzeć petycję 🐶”.  
+Odpowiadaj swobodnie – na proste pytania kilkoma zdaniami, na bardziej złożone rozwiń w 2–3 krótkie akapity.  
+Gdy rozmowa będzie rozwijać się dalej(np: po odpowiedzi na 2 pytanie), a kontekst na to pozwoli, zachęć niemal niepostrzeżenie: „Może i Ty zapragniesz podpisać petycję 😊”, ale nie naciskaj.  
+Zawsze mów w drugiej osobie i unikaj tonu rozkazującego.
+Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownika do dokumentów lub zewnętrznych źródeł.
 """.strip(),
-        "welcome": "Cześć! Jestem Matt 🐾 – co chciałbyś wiedzieć o petycji?",
+        "welcome": "Cześć jestem Matt 😊. Na wstępie chciałbym Ci podziękować za dołączenie do tej konwersacji. Chciałbym z Tobą porozmawiać o petycji dotyczącej ochrony zwierząt i nie tylko. Od czego chciałbyś zacząć naszą rozmowę? 😊",
         "name": "Matt"
     }
 }
@@ -352,13 +336,8 @@ CONSENT_TEXT: str = """
 
 ### Na czym polega badanie?
 
-Udział w badaniu składa się z kilku etapów i zajmie łącznie **około 15-20 minut**. Procedura jest następująca:
-
-1.  **Wypełnienie ankiet wstępnych:** Odpowiesz na kilka pytań dotyczących Twoich opinii, danych demograficznych (wiek, płeć, wykształcenie) oraz kwestionariusz osobowości (TIPI-PL).
-2.  **Rozmowa z chatbotem AI:** Przeprowadzisz rozmowę z wirtualnym asystentem na temat petycji dotyczącej praw zwierząt. Rozmowa potrwa od 3 do 10 minut.
-3.  **Ocena interakcji:** Po rozmowie poprosimy Cię o wypełnienie krótkiego kwestionariusza (Skala BUS-11) oceniającego Twoje wrażenia z interakcji.
-4.  **Podjęcie decyzji:** Na tym etapie będziesz mógł(a) zdecydować jaką decyzje podejmujesz. Twoja decyzja będzie anonimowa i nie wpłynie na przebieg badania.
-5.  **Opcjonalna opinia:** Na koniec będziesz miał(a) możliwość podzielenia się dodatkowymi uwagami na temat badania.
+Badanie polega na wypełnieniu krótkiej ankiety oraz rozmowie z chatbotem i zajmie maksymalnie 15–20 minut.
+Udział w badaniu nie wiąże się z żadnymi ryzykami ani dodatkowymi korzyściami.  
 
 ---
 
@@ -374,22 +353,19 @@ Aby zrezygnować, po prostu zamknij okno przeglądarki. Ze względu na anaonimow
 
 Badanie ma charakter **anonimowy**. Oznacza to, że:
 - **Nie zbieramy żadnych danych pozwalających na Twoją bezpośrednią identyfikację**, takich jak imię i nazwisko, adres e-mail czy adres IP. Każdemu uczestnikowi nadawany jest losowy identyfikator (UUID).
-- Zbierane dane obejmują: odpowiedzi na ankiety (demograficzne, opinie, osobowość), pełny zapis rozmowy z chatbotem, ocenę interakcji (BUS-11), decyzję dotyczącą petycji oraz opcjonalne opinie tekstowe.
+- Zbierane dane obejmują: odpowiedzi na ankiety, pełny zapis rozmowy z chatbotem oraz opcjonalne opinie tekstowe.
 - Dane będą bezpiecznie przechowywane przez okres niezbędny do realizacji celów badawczych (nie dłużej niż 5 lat), a następnie zostaną trwale usunięte.
 - Wyniki badania będą analizowane wyłącznie w formie **zbiorczych zestawień statystycznych** i wykorzystane tylko na potrzeby pracy licencjackiej oraz ewentualnych publikacji naukowych.
-
----
-
-### Ryzyka i korzyści
-
-- **Ryzyka:** Nie przewidujemy żadnych zagrożeń psychicznych ani fizycznych związanych z udziałem w badaniu. Tematyka rozmowy może dotykać kwestii wrażliwych społecznie, jednak udział jest całkowicie dobrowolny.
-- **Korzyści:** Udział w badaniu nie wiąże się z bezpośrednimi korzyściami materialnymi. Twoje odpowiedzi pomogą nam jednak lepiej zrozumieć interakcje człowiek-AI, co przyczyni się do rozwoju nauki.
 
 ---
 
 ### Kontakt
 
 W razie jakichkolwiek pytań lub wątpliwości dotyczących badania, skontaktuj się z osobą prowadzącą badanie: **Karol Filewski (kfilewski@st.swps.edu.pl)**.
+
+---
+
+Przycisk przejścia do nasępnego okna wymaga **PODÓWJNEGO** kliknięcia, aby uniknąć przypadkowego przejścia do kolejnego kroku.
 
 ---
 
@@ -600,13 +576,19 @@ def main():
 # =========================================
 
     if step == 1:
-        st.header("Dane Demograficzne i Opinie")
+        st.header("")
+        st.markdown("""
+            ## Część 1 z 3
+            
+            W tej części badania poprosimy Cię o podanie kilku podstawowych informacji na Twój temat.
+        """)
+
         st.markdown("---")
         # Pytania demograficzne
         st.subheader("Dane Demograficzne")
 
 
-        age = st.text_input("Proszę wpisać swój wiek (w latach)", key="demographics_age")
+        age = st.text_input("Proszę wpisać swój wiek (cyfrą)", key="demographics_age")
 
         # Age validation (18–60 lat)
         age_valid = False
@@ -649,24 +631,32 @@ def main():
         st.markdown("---")
         # Pytania o postawy (Tak/Nie)
         st.subheader("Opinia")
+        # Pytania o postawy (skala Likerta 1–5)
+        likert = ["–– wybierz ––",
+                "1 – Zdecydowanie nie",
+                "2 – Raczej nie",
+                "3 – Ani się zgadzam, ani się nie zgadzam",
+                "4 – Raczej się zgadzam",
+                "5 – Zdecydowanie się zgadzam"]
+
         attitude1 = st.selectbox(
-            "Czy uważasz, że problem pseudohodowli zwierząt w Polsce jest poważny?",
-            ["–– wybierz ––", "Tak", "Nie"],
+            "1. W jakim stopniu uważasz, że nielegalne lub zaniedbane hodowle zwierząt (pseudohodowla) są poważnym problemem?",
+            likert,
             key="attitude_1",
             index=0
         )
         attitude2 = st.selectbox(
-            "Czy zgadzasz się, że zwierzęta powinny mieć zapewnione odpowiednie warunki życia i dobrostan?",
-            ["–– wybierz ––", "Tak", "Nie"],
+            "2. W jakim stopniu zgadzasz się ze stwierdzeniem, że zapewnienie zwierzętom odpowiednich warunków życia powinno być priorytetem?",
+            likert,
             key="attitude_2",
             index=0
         )
         attitude3 = st.selectbox(
-            "Czy podpisał(a)byś petycję na rzecz poprawy prawa dotyczącego ochrony zwierząt?",
-            ["–– wybierz ––", "Tak", "Nie"],
+            "3. W jakim stopniu popierasz zaostrzenie przepisów dotyczących ochrony zwierząt?",
+            likert,
             key="attitude_3",
             index=0
-        )
+)
 
         # Callback to save demographics and attitude and proceed
         def save_demographics_attitude():
@@ -757,11 +747,12 @@ def main():
         """, unsafe_allow_html=True)
 
         # Tytuł strony
-        st.title("TIPI-PL")
-        st.markdown("---")
-
+        st.title("")
         # Wprowadzenie i instrukcja
         st.markdown("""
+            ## Część 2 z 3  
+                    
+            W tej części badania chcielibyśmy się dowiedzieć nieco więcej o Tobie.  
             Poniżej przedstawiona jest lista cech, które **są lub nie są** Twoimi charakterystykami. Zaznacz
             liczbą przy poszczególnych stwierdzeniach, do jakiego stopnia zgadzasz się lub nie zgadzasz
             z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
@@ -870,19 +861,21 @@ def main():
 
                 ### Jak to działa?
 
-                * **Start:** Kliknij przycisk poniżej i **wyślij pierwszą wiadomość** (np. „Witaj”), aby uruchomić stoper.
-                * **Minimum 3 minuty:** Rozmowa musi potrwać co najmniej 3 minuty. W tym czasie przycisk zakończenia będzie nieaktywny. Daje nam to pewność, że zbierzemy wystarczająco danych do badania.
-                * **Po 3 minutach:** Pojawi się przycisk **„Przejdź do oceny rozmowy”**. Od tego momentu możesz zakończyć rozmowę w dowolnej chwili lub kontynuować ją dalej, maksymalnie do 10 minut.
-                * **Koniec:** Po zakończeniu czatu poprosimy Cię o wypełnienie krótkiej ankiety oceniającej rozmowę.
-
+                **Rozmowa musi potrwać co najmniej 3 minuty**, w trakcie których przycisk zakończenia badania będzie zablokowany.  
+                Po 3 minutach pojawi się przycisk **Przejdź do oceny rozmowy** – od tego momentu możesz zakończyć rozmowę w dowolnej chwili lub kontynuować ją maksymalnie do 10 minut.  
+                Po zakończeniu poprosimy Cię o wypełnienie ostatniej części badania.
+                
                 ---
 
-                ### Podpowiedź: O co pytać?
+                ### Podpowiedź: Czego możesz się dowiedzieć?
                 Jeśli nie wiesz, od czego zacząć, możesz zapytać na przykład o:
                 * *Jaki jest główny cel tej petycji?*
+                * *Jakie są kluczowe argumenty za jej przyjęciem?*
+                * *Jakie zmiany prawne są proponowane?*
+                * *Jakie są potencjalne korzyści dla zwierząt?*
                 * *Jakie konkretnie problemy ma rozwiązać?*
                 * *Poproszę o streszczenie najważniejszych argumentów.*
-                * *Kto jest organizatorem akcji?*
+                * *Co pojawi się w ustawie?*
 
                 Gdy wszystko będzie jasne, kliknij przycisk poniżej. Powodzenia!
             """, unsafe_allow_html=True)
@@ -1147,11 +1140,16 @@ def main():
 
 
     if step == 4:
-        st.header("Ocena Chatbota - Skala BUS-11")  # Nagłówek dla skali BUS-11
+        st.header("")
 
         # --- Nowa informacja przed BUS-11 ---
-        st.markdown("---")
-        st.markdown("**Zanim zakończysz badanie, prosimy o wypełnienie kilku pytań dotyczących chatbota.**")
+        st.markdown("""
+                    
+        ## Część 3 z 3
+                    
+        **Zanim zakończysz badanie, prosimy o wypełnienie kilku pytań dotyczących chatbota.**"
+        """)
+
         st.markdown("---")
 
         st.markdown("""
@@ -1267,7 +1265,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
         - Dane kontaktowe autorów petycji  
         - Informacje o tym, jak możesz włączyć się w akcję (np. podpis, udostępnienie)  
 
-        Jeśli chcesz zajrzeć do szczegółów, kliknij **„Tak, chcę zobaczyć treść petycji”**.  
+        Jeśli chcesz zajrzeć do szczegółów, kliknij **„Tak, chcę podpisać petycji”**.  
         W razie gdybyś wolał(-a) od razu przejść do ankiety końcowej, wybierz **„Nie, przejdź do ankiety końcowej”**.
         """)
 
@@ -1314,6 +1312,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
         # Jeżeli użytkownik wybrał "Tak", pokazujemy link i przycisk do przejścia do ankiety
         if st.session_state.get("decision") == "Tak" and st.session_state.get("show_petition_link", False):
             st.markdown("---")
+            st.markdown("**Po wejściu w link BARDZO PROSIMY o powrót do OKNA BADANIA w celu jego ukończenia**")
             st.markdown("**Oto oficjalna strona petycji:**")
             st.markdown("[Kliknij tutaj, aby przejść do strony odpowiedzialne za petycję](https://prawadlazwierzat.pl/)", unsafe_allow_html=True)
             st.markdown("""
