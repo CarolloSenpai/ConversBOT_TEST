@@ -1266,7 +1266,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
             on_click=lambda: [
                 # 1) Najpierw nadpisujemy wiersz aktualnymi danymi (w tym BUS-11)
                 _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1.update(
-                    f"A{st.session_state['row_index']}:AN{st.session_state['row_index']}",
+                    f"A{st.session_state['row_index']}:AP{st.session_state['row_index']}",
                     [build_full_row_data()]
                 ),
                 # 2) Dopiero przechodzimy do kroku 5 (Decyzja o petycji)
