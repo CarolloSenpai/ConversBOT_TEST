@@ -177,7 +177,7 @@ def build_full_row_data():
     current_step = st.session_state.get("current_step", 0)
     row.append(STAGE_NAMES.get(current_step, ""))
     # completed (AP)
-    row.append("Yes" if current_step == 7 else "No")
+    row.append("Yes" if current_step == 6 else "No")
     return row
 
 
