@@ -972,7 +972,7 @@ def main():
                     # Inaczej wyświetlamy zdania z opóźnieniem (40ms na znak)
                     for sentence in bot_sentences:
                         st.markdown(f"<div class='chat-bot'><div>{sentence}</div></div>", unsafe_allow_html=True)
-                        time.sleep(len(sentence) * 0.04)
+                        time.sleep(len(sentence) * 0.03)
                     # Oznacz tę turę jako wyświetloną
                     st.session_state.shown_sentences[i] = True
         st.markdown("</div>", unsafe_allow_html=True)
