@@ -336,7 +336,7 @@ DEFAULT_MODEL: str = "gpt-3.5-turbo"
 # Tekst zgody na udział w badaniu
 CONSENT_TEXT: str = """
 
-# Formularz świadomej zgody na udział w badaniu naukowym
+## Formularz świadomej zgody na udział w badaniu naukowym
 
 ---
 
@@ -351,14 +351,14 @@ CONSENT_TEXT: str = """
 
 ---
 
-### Na czym polega badanie?
+#### Na czym polega badanie?
 
-Badanie polega na wypełnieniu krótkiej ankiety oraz rozmowie z chatbotem i zajmie maksymalnie 15–20 minut.
+Badanie polega na wypełnieniu kilku krótkich ankiet oraz rozmowie z chatbotem i zajmie maksymalnie 15–20 minut.
 Udział w badaniu nie wiąże się z żadnymi ryzykami ani dodatkowymi korzyściami.  
 
 ---
 
-### Dobrowolność udziału i prawo do rezygnacji
+#### Dobrowolność udziału i prawo do rezygnacji
 
 **Twój udział w tym badaniu jest w pełni dobrowolny.** Możesz zrezygnować w dowolnym momencie, bez podawania przyczyny i bez żadnych negatywnych konsekwencji.
 
@@ -366,23 +366,22 @@ Aby zrezygnować, po prostu zamknij okno przeglądarki. Ze względu na anaonimow
 
 ---
 
-### Poufność i przetwarzanie danych
+#### Poufność i przetwarzanie danych
 
 Badanie ma charakter **anonimowy**. Oznacza to, że:
-- **Nie zbieramy żadnych danych pozwalających na Twoją bezpośrednią identyfikację**, takich jak imię i nazwisko, adres e-mail czy adres IP. Każdemu uczestnikowi nadawany jest losowy identyfikator (UUID).
+- **Nie zbieramy żadnych danych pozwalających na Twoją bezpośrednią identyfikację**, takich jak imię i nazwisko, adres e-mail czy adres IP.
 - Zbierane dane obejmują: odpowiedzi na ankiety, pełny zapis rozmowy z chatbotem oraz opcjonalne opinie tekstowe.
 - Dane będą bezpiecznie przechowywane przez okres niezbędny do realizacji celów badawczych (nie dłużej niż 5 lat), a następnie zostaną trwale usunięte.
-- Wyniki badania będą analizowane wyłącznie w formie **zbiorczych zestawień statystycznych** i wykorzystane tylko na potrzeby pracy licencjackiej oraz ewentualnych publikacji naukowych.
 
 ---
 
-### Kontakt
+#### Kontakt
 
 W razie jakichkolwiek pytań lub wątpliwości dotyczących badania, skontaktuj się z osobą prowadzącą badanie: **Karol Filewski (kfilewski@st.swps.edu.pl)**.
 
 ---
 
-Przycisk przejścia do nasępnego okna wymaga **PODÓWJNEGO** kliknięcia, aby uniknąć przypadkowego przejścia do kolejnego kroku.
+Przycisk przejścia do następnego okna wymaga **PODWÓJNEGO** kliknięcia, aby uniknąć przypadkowego przejścia do kolejnego kroku. 
 
 ---
 
