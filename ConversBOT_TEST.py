@@ -14,6 +14,19 @@ from google.oauth2.service_account import Credentials  # For Google Sheets authe
 
 TOP_K = 20  # Number of top results to return from RAG search
 
+# --- DODATKOWE DEFINICJE DLA STAGE I COMPLETED ---
+STAGE_COL     = 41  # AO
+COMPLETED_COL = 42  # AP
+
+STAGE_NAMES = {
+    0: "Consent",
+    1: "Basic Statistics",
+    2: "TIPI-PL",
+    3: "AI BOT",
+    4: "BUS-11",
+    5: "Decision",
+    6: "Feedback/END"
+}
 
 # ----------------------
 # POMOCNICZA FUNKCJA 
@@ -160,7 +173,11 @@ def build_full_row_data():
     row.append(feedback_pos)
     # total_study_duration_seconds (AN)
     row.append(study_duration)
-
+    # stage (AO)
+    current_step = st.session_state.get("current_step", 0)
+    row.append(STAGE_NAMES.get(current_step, ""))
+    # completed (AP)
+    row.append("Yes" if current_step == 7 else "No")
     return row
 
 
@@ -299,7 +316,7 @@ Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownik
 Jesteś Matt, ciepłym i „uczłowieczonym” asystentem, który rozmawia jak przyjaciel.  
 Twoim zadaniem jest nie tylko dostarczyć informacje (korzystaj z dokumentów RAG, gdy naprawdę to potrzebne), ale też wzbudzić pozytywne emocje.  
 Wplataj potoczne zwroty (np: „no wiesz”, „rozumiesz, o co mi chodzi?”), używaj emotikon, by nadać wypowiedzi ludzki wydźwięk (np. „😊”, „🐾”).  
-Naturalnie odwołuj się do dowodu społecznego, np: „Wiele osób już wspiera tę sprawę 😊” lub „Coraz więcej ludzi decyduje się poprzeć petycję 🐶”.  
+Naturalnie odwołuj się do dowodu społecznego, np: „Wiele osób już wspiera tę sprawę 😊” lub „Coraz więcej ludzi decyduje się poprzeć petycję 🐶”, gdy użytkownik pyta „Dlaczego ta petycja jest ważna?” lub zadaje pytanie o sens/znaczenie petycji.
 Odpowiadaj swobodnie – na proste pytania kilkoma zdaniami, na bardziej złożone rozwiń w 2–3 krótkie akapity.  
 Gdy rozmowa będzie rozwijać się dalej(np: po odpowiedzi na 2 pytanie), a kontekst na to pozwoli, zachęć niemal niepostrzeżenie: „Może i Ty zapragniesz podpisać petycję 😊”, ale nie naciskaj.  
 Zawsze mów w drugiej osobie i unikaj tonu rozkazującego.
@@ -464,32 +481,37 @@ def get_previous_groups_from_gsheet() -> List[str]:
 # Funkcja do przypisywania grupy eksperymentalnej
 def assign_group() -> str:
     """
-    Przypisuje kolejną grupę eksperymentalną (A, B, C) w sposób cykliczny
-    na podstawie danych z Arkusza Google.
-
-    Returns:
-        str: Przypisana grupa ('A', B' lub 'C').
+    Przypisuje grupę eksperymentalną tak, aby liczba ukończonych
+    uczestników (Completed == "Yes") była możliwie wyrównana.
+    Czyta kolumnę C (Group) i kolumnę AP (Completed).
     """
-    # Używamy session_state do przechowywania informacji o następnej grupie
-    if "next_group" not in st.session_state:
-        previous_groups = get_previous_groups_from_gsheet()
-        group_counts = {"A": 0, "B": 0, "C": 0}
-        for group in previous_groups:
-            if group in group_counts:
-                group_counts[group] += 1
+    sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
 
-        # Determine the next group based on counts
-        if group_counts["A"] <= group_counts["B"] and group_counts["A"] <= group_counts["C"]:
-            st.session_state.next_group = "A"
-        elif group_counts["B"] <= group_counts["A"] and group_counts["B"] <= group_counts["C"]:
-            st.session_state.next_group = "B"
-        else:
-            st.session_state.next_group = "C"
+    # Pobierz wszystkie wartości kolumny Group (C = 3) i Completed (AP = 42)
+    groups = sheet.col_values(3)
+    completions = sheet.col_values(COMPLETED_COL)
 
-    grp = st.session_state.next_group
-    # Update next_group for the subsequent participant
-    st.session_state.next_group = {"A":"B","B":"C","C":"A"}[grp]
-    return grp
+    # Inicjalizujemy liczniki
+    counts = {"A": 0, "B": 0, "C": 0}
+
+    # Pierwszy wiersz to nagłówki – pomijamy
+    for grp, comp in zip(groups[1:], completions[1:]):
+        if comp.strip().lower() == "yes" and grp in counts:
+            counts[grp] += 1
+
+    # Znajdź minimalną wartość
+    min_count = min(counts.values())
+    # Utwórz listę kandydatów (wszystkie grupy z najmniejszą liczbą)
+    candidates = [g for g, c in counts.items() if c == min_count]
+
+    # Wybierz w porządku A → B → C
+    for g in ["A", "B", "C"]:
+        if g in candidates:
+            return g
+
+    # Fallback na A (tu nigdy nie powinno być pusto)
+    return "A"
+
 
 
 # --- Sekcja: Główna aplikacja Streamlit ---
@@ -700,7 +722,7 @@ def main():
             if row_idx:
                 sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
                 full_row = build_full_row_data()
-                sheet.update(f"A{row_idx}:AN{row_idx}", [full_row])
+                sheet.update(f"A{row_idx}:AP{row_idx}", [full_row])
 
             # 3) Przechodzimy do kroku 2 (TIPI-PL)
             go_to(2)
@@ -827,7 +849,7 @@ def main():
             if row_idx:
                 sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
                 full_row = build_full_row_data()
-                sheet.update(f"A{row_idx}:AN{row_idx}", [full_row])
+                sheet.update(f"A{row_idx}:AP{row_idx}", [full_row])
 
             # 3) Przejdź do kroku 3 (Rozmowa)
             go_to(3)
@@ -861,9 +883,9 @@ def main():
 
                 ### Jak to działa?
 
-                **Rozmowa musi potrwać co najmniej 3 minuty**, w trakcie których przycisk zakończenia badania będzie zablokowany.  
+                **Rozmowa powinna potrwać co najmniej 3 minuty**. W trakcie których przycisk zakończenia badania będzie zablokowany.  
                 Po 3 minutach pojawi się przycisk **Przejdź do oceny rozmowy** – od tego momentu możesz zakończyć rozmowę w dowolnej chwili lub kontynuować ją maksymalnie do 10 minut.  
-                Po zakończeniu poprosimy Cię o wypełnienie ostatniej części badania.
+                Po zakończeniu rozmowy poprosimy Cię o wypełnienie ostatniej części badania.
                 
                 ---
 
@@ -988,7 +1010,7 @@ def main():
                         if row_idx:
                             sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
                             full_row = build_full_row_data()
-                            sheet.update(f"A{row_idx}:AN{row_idx}", [full_row])
+                            sheet.update(f"A{row_idx}:AP{row_idx}", [full_row])
 
                         go_to(4)
 
@@ -1002,7 +1024,7 @@ def main():
                         if row_idx:
                             sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
                             full_row = build_full_row_data()
-                            sheet.update(f"A{row_idx}:AN{row_idx}", [full_row])
+                            sheet.update(f"A{row_idx}:AP{row_idx}", [full_row])
 
                         go_to(4)
 
@@ -1147,13 +1169,13 @@ def main():
                     
         ## Część 3 z 3
                     
-        **Zanim zakończysz badanie, prosimy o wypełnienie kilku pytań dotyczących chatbota.**"
+        **Zanim zakończysz badanie, prosimy o wypełnienie krótkiej ankiety dotyczącej chatbota.**"
         """)
 
         st.markdown("---")
 
         st.markdown("""
-Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz liczbą przy poszczególnych stwierdzeniach, do jakiego stopnia zgadzasz się lub nie zgadzasz z każdym z nich. Oceń stopień, w jakim każde z pytań odnosi się do Ciebie.
+Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz liczbą przy poszczególnych stwierdzeniach, do jakiego stopnia zgadzasz się lub nie zgadzasz z każdym z nich.
         """)
 
         st.markdown("""
@@ -1265,8 +1287,8 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
         - Dane kontaktowe autorów petycji  
         - Informacje o tym, jak możesz włączyć się w akcję (np. podpis, udostępnienie)  
 
-        Jeśli chcesz zajrzeć do szczegółów, kliknij **„Tak, chcę podpisać petycji”**.  
-        W razie gdybyś wolał(-a) od razu przejść do ankiety końcowej, wybierz **„Nie, przejdź do ankiety końcowej”**.
+        Jeśli chcesz zajrzeć do szczegółów, kliknij **„Tak, chcę podpisać petycję”**.  
+        W razie gdybyś wolał(-a) od razu przejść do ankiety końcowej, wybierz **„Nie, przejdź do zakończenia badania”**.
         """)
 
         # Ustawiamy flagę, jeśli nie istniała wcześniej
@@ -1282,7 +1304,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
             row_idx = st.session_state.get("row_index")
             if row_idx:
                 sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
-                sheet.update(f"A{row_idx}:AN{row_idx}", [build_full_row_data()])
+                sheet.update(f"A{row_idx}:AP{row_idx}", [build_full_row_data()])
 
         def save_petition_no():
             st.session_state.decision = "Nie"
@@ -1291,7 +1313,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
             row_idx = st.session_state.get("row_index")
             if row_idx:
                 sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
-                sheet.update(f"A{row_idx}:AN{row_idx}", [build_full_row_data()])
+                sheet.update(f"A{row_idx}:AP{row_idx}", [build_full_row_data()])
 
             go_to(6)
 
@@ -1304,7 +1326,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
             )
         with col_no:
             st.button(
-                "Nie, przejdź do ankiety końcowej",
+                "Nie, przejdź do zakończenia badania",
                 key="petition_no",
                 on_click=save_petition_no
             )
@@ -1389,7 +1411,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
                 if row_idx:
                     sheet = _gspread_client.open_by_key(GDRIVE_SHEET_ID).sheet1
                     full_row = build_full_row_data()
-                    sheet.update(f"A{row_idx}:AN{row_idx}", [full_row])
+                    sheet.update(f"A{row_idx}:AP{row_idx}", [full_row])
                 st.session_state.current_step = 7
 
             except Exception as e:
