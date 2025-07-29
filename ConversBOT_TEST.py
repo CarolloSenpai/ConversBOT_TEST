@@ -1225,34 +1225,65 @@ def main():
 Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz liczbą przy poszczególnych stwierdzeniach, do jakiego stopnia zgadzasz się lub nie zgadzasz z każdym z nich.
         """)
 
+        # st.markdown("""
+        #             <table style="
+        #                 width: 100%;
+        #                 border-collapse: collapse;
+        #                 margin: 1rem auto;
+        #                 text-align: center;
+        #             ">
+        #             <thead>
+        #                 <tr style="border-bottom:1px solid #ccc;">
+        #                 <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
+        #                 <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
+        #                 <th style="padding: 8px; text-align: center;">Ani się zgadzam, ani się nie zgadzam</th>
+        #                 <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
+        #                 <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
+        #                 </tr>
+        #             </thead>
+        #             <tbody>
+        #                 <tr>
+        #                 <td style="padding: 8px; text-align: center;"><strong>1</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>2</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>3</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>4</strong></td>
+        #                 <td style="padding: 8px; text-align: center;"><strong>5</strong></td>
+        #                 </tr>
+        #             </tbody>
+        #             </table>
+        # """, unsafe_allow_html=True)
+
         st.markdown("""
-                    <table style="
-                        width: 100%;
-                        border-collapse: collapse;
-                        margin: 1rem auto;
-                        text-align: center;
-                    ">
-                    <thead>
-                        <tr style="border-bottom:1px solid #ccc;">
-                        <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Ani się zgadzam, ani się nie zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
-                        <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td style="padding: 8px; text-align: center;"><strong>1</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>2</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>3</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>4</strong></td>
-                        <td style="padding: 8px; text-align: center;"><strong>5</strong></td>
-                        </tr>
-                    </tbody>
-                    </table>
+        <div style="overflow-x: auto;">
+          <table style="
+              min-width: 600px;
+              border-collapse: collapse;
+              margin: 1rem auto;
+              text-align: center;
+          ">
+            <thead>
+              <tr style="border-bottom:1px solid #ccc;">
+                <th style="padding: 8px;">Zdecydowanie się nie zgadzam</th>
+                <th style="padding: 8px;">Raczej się nie zgadzam</th>
+                <th style="padding: 8px;">Ani się zgadzam, ani się nie zgadzam</th>
+                <th style="padding: 8px;">Raczej się zgadzam</th>
+                <th style="padding: 8px;">Zdecydowanie się zgadzam</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 8px;"><strong>1</strong></td>
+                <td style="padding: 8px;"><strong>2</strong></td>
+                <td style="padding: 8px;"><strong>3</strong></td>
+                <td style="padding: 8px;"><strong>4</strong></td>
+                <td style="padding: 8px;"><strong>5</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
         """, unsafe_allow_html=True)
 
+        
         st.markdown("---")
 
         # Pytania ze skali BUS-11 (zgodnie z feedbackiem użytkownika)
