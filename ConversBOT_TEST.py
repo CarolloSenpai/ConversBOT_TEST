@@ -827,7 +827,7 @@ def main():
         st.markdown("""
         <div style="overflow-x: auto; width: 100%;">
           <table style="
-              min-width: 700px;
+              min-width: 680px;
               width: 100%;
               border-collapse: collapse;
               margin: 1rem auto;
