@@ -367,7 +367,7 @@ CONSENT_TEXT: str = """
 
 #### Na czym polega badanie?
 
-Badanie polega na wypełnieniu kilku krótkich ankiet oraz rozmowie z chatbotem i zajmie maksymalnie 15–20 minut.
+Badanie obejmuje wypełnienienie kilku krótkich ankiet oraz rozmowę z chatbotem i zajmuje łacznie około 10–20 minut.
 Udział w badaniu nie wiąże się z żadnymi ryzykami ani dodatkowymi korzyściami.  
 
 ---
