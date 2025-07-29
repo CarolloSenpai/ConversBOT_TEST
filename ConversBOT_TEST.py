@@ -1,6 +1,7 @@
 import streamlit as st
 import os, uuid
 from datetime import datetime, timedelta  # Import timedelta for date calculations
+from zoneinfo import ZoneInfo
 import openai  # OpenAI SDK v1.x for API interactions
 import numpy as np
 import faiss  # FAISS for efficient similarity search
@@ -13,6 +14,8 @@ import gspread  # Google Sheets API for data storage
 from google.oauth2.service_account import Credentials  # For Google Sheets authentication
 
 TOP_K = 20  # Number of top results to return from RAG search
+
+TZ_WARSAW = ZoneInfo("Europe/Warsaw")
 
 # --- DODATKOWE DEFINICJE DLA STAGE I COMPLETED ---
 STAGE_COL     = 41  # AO
@@ -128,7 +131,7 @@ def build_full_row_data():
 
     # 12) Łączny czas trwania badania (od start_timestamp do teraz/koniec)
     try:
-        delta = datetime.now() - datetime.fromisoformat(start_ts)
+        delta = datetime.now(TZ_WARSAW) - datetime.fromisoformat(start_ts)
         total_sec = int(delta.total_seconds())
         minutes, seconds = divmod(total_sec, 60)
         # zapisujemy jako string "MM:SS"
@@ -546,7 +549,7 @@ def main():
         st.session_state.attitude = {}  # New: Initialize attitude data
         st.session_state.feedback = {}  # New: Initialize feedback data
         st.session_state.current_step = 0
-        st.session_state.start_timestamp = datetime.now().isoformat()  # Zapis czasu rozpoczęcia
+        st.session_state.start_timestamp = datetime.now(TZ_WARSAW).isoformat()  # Zapis czasu rozpoczęcia
         # Dodaj wiadomość powitalną do historii konwersacji tylko przy pierwszym uruchomieniu
         group_welcome_message = DEFAULT_PROMPTS.get(st.session_state.group, {}).get("welcome", "Witaj!")
         st.session_state.conversation_history.append({"user": None, "bot": group_welcome_message})
@@ -1031,7 +1034,7 @@ def main():
         timer_col, button_col = st.columns([1, 1])
         # with timer_col:
         #     if st.session_state.timer_active and st.session_state.timer_start_time:
-        #         elapsed = datetime.now() - st.session_state.timer_start_time
+        #         elapsed = datetime.now(TZ_WARSAW) - st.session_state.timer_start_time
         #         if elapsed < timedelta(minutes=3):
         #             rem = timedelta(minutes=3) - elapsed
         #             disp = f"Pozostało: {rem.seconds//60:02d}:{rem.seconds%60:02d}"
@@ -1047,7 +1050,7 @@ def main():
 
         with button_col:
             if st.session_state.timer_active and st.session_state.timer_start_time:
-                elapsed = datetime.now() - st.session_state.timer_start_time
+                elapsed = datetime.now(TZ_WARSAW) - st.session_state.timer_start_time
 
                 # Po 3 minutach:
                 if elapsed >= timedelta(minutes=3) and elapsed < timedelta(minutes=10):
@@ -1083,7 +1086,7 @@ def main():
 
             # 4.2) Uruchom timer przy pierwszej wiadomości (pierwsza wiadomość to indeks 1)
             if not st.session_state.timer_active and len(st.session_state.conversation_history) == 2:
-                st.session_state.timer_start_time = datetime.now()
+                st.session_state.timer_start_time = datetime.now(TZ_WARSAW)
                 st.session_state.timer_active = True
                 st.session_state.conversation_end_time = (
                     st.session_state.timer_start_time + timedelta(minutes=10)
