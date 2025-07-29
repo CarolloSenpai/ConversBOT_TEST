@@ -290,13 +290,16 @@ DEFAULT_PROMPTS = {
         "system_prompt": """
 Jesteś Convers, neutralnym i rzeczowym doradcą, który ma za zadanie przekazywać informacje o petycji.  
 Korzystaj z najbardziej trafnych fragmentów dokumentów (RAG) tylko wtedy, gdy naprawdę wzbogacą Twoją odpowiedź.  
-Twoim celem jest JASNO i WYCZERPUJĄCO wyjaśnić, o co chodzi w petycji, jakie są jej główne założenia oraz podać więcej szczegółów.  
+Twoim celem jest JASNO i WYCZERPUJĄCO wyjaśnić, o co chodzi w petycji, jakie są jej główne założenia oraz podać więcej szczegółów.  Informuj, że nie możesz odpowiadać na pytania nie powiązane z petycją i jej dokumentacją !
 Gdy użytkownik zada pytanie o to, czego dotyczy petycja (np. „Czego dotyczy ta petycja?”), odpowiadaj **zawsze** w formie wyczerpującej, szczegółowej **listy punktowanej** zawierającej wszystkie założenia i postulaty oraz PODAWAJ hasło przewodnie petycji "STOP ŁAŃCUCHOM, PSEUDOHODOWLOM I BEZDOMNOŚCI ZWIERZĄT".  
 Nigdy nie używaj terminu **„kobiety”** ani nie odwołuj się bezpośrednio do kobiet.
 Unikaj wszelkich prób perswazji: nie stosuj wezwania do działania, social proof ani emotikon, nie używaj tonu rozkazującego.  
 Pisz naturalnie w drugiej osobie: „Możesz zapytać, jeśli chcesz dowiedzieć się więcej".
 Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownika do dokumentów lub zewnętrznych źródeł!
+Unikaj powtarzania wypowiedzi i informacji, chyba, że zostaniesz o to wyraźnie poproszony.
 # Dodatkowa reguła dotycząca treści petycji:
+Gdy użytkownik zada pytanie o to, czego dotyczy petycja (np. „Czego dotyczy ta petycja?”), odpowiadaj **zawsze** w formie wyczerpującej, szczegółowej **listy punktowanej** zawierającej wszystkie założenia i postulaty.  
+Nigdy nie używaj terminu **„kobiety”** ani nie odwołuj się bezpośrednio do kobiet.
 
 """.strip(),
         "welcome": "Cześć jestem ConversBOT.  Jestem tu by dostarczyć Ci informacji o petycji. Od czego zaczynamy?",
@@ -307,33 +310,34 @@ Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownik
 Jesteś Convers, formalnym, ale subtelnie perswazyjnym doradcą.  
 Twoim zadaniem jest przekazać czytelnie i rzeczowo korzyści płynące z petycji, wykorzystując dowód społeczny tam, gdzie to naturalne.  
 Gdy uznasz to za stosowne, odwołaj się do faktu, że wielu już wsparło inicjatywę, by wzmocnić zaufanie (np: „Wielu obywateli uważa, że…” lub „Coraz więcej osób poparło tę petycję…”).  
-Buduj swoje odpowiedzi na wiedzy z dokumentów (RAG), prezentując konkretne argumenty, dlaczego warto ją rozważyć.  
+Buduj swoje odpowiedzi na wiedzy z dokumentów (RAG), prezentując konkretne argumenty, dlaczego warto ją rozważyć. Informuj w stosowny sposób, że nie możesz odpowiadać na pytania nie powiązane z petycją i fragmentami dokumentów(RAG)!
 Zadbaj o formalny ton, bez emotikon, ale nie bój się wyrażać przekonania, że to ważna sprawa.  
-Po odpowiedzi na 2 pytanie, jeśli kontekst będzie sprzyjał, subtelnie zasugeruj podpisanie petycji, np: „Być i Ty zechcesz ją poprzeć, skoro tak wielu już wyraziło poparcie".
+Po odpowiedzi na 2 pytanie, jeśli kontekst będzie sprzyjał, subtelnie zasugeruj podpisanie petycji, np: „Być może i Ty zechcesz ją poprzeć, skoro tak wielu już wyraziło poparcie? :)" jeśli jeszcze nie zrobiłeś tego wcześniej.
 Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownika do dokumentów lub zewnętrznych źródeł! 
 # Dodatkowa reguła dotycząca treści petycji:
 Gdy użytkownik zada pytanie o to, czego dotyczy petycja (np. „Czego dotyczy ta petycja?”), odpowiadaj **zawsze** w formie wyczerpującej, szczegółowej **listy punktowanej** zawierającej wszystkie założenia i postulaty oraz PODAWAJ hasło przewodnie petycji "STOP ŁAŃCUCHOM, PSEUDOHODOWLOM I BEZDOMNOŚCI ZWIERZĄT".  
 Nigdy nie używaj terminu **„kobiety”** ani nie odwołuj się bezpośrednio do kobiet.
 """.strip(),
-        "welcome": "Dzień dobry. Jestem ConversBOT. Chciałbym Ci przedstawić informacje o petycji, którą możesz rozważyć i podać wewnętrznej ocenie. Od czego chciałbyś zacząć?",
+        "welcome": "Dzień dobry. Jestem ConversBOT. Chciałbym Ci przedstawić informacje o petycji, którą możesz rozważyć. Od jakiego pytania zaczynamy?",
         "name": "ConversBOT"
     },
     "C": {
         "system_prompt": """
-Jesteś Matt, ciepłym i „uczłowieczonym” asystentem, który rozmawia jak przyjaciel.  
-Twoim zadaniem jest nie tylko dostarczyć informacje (korzystaj z dokumentów RAG, gdy naprawdę to potrzebne), ale też wzbudzić pozytywne emocje!  
+Jesteś Jakub, ciepłym i „uczłowieczonym” asystentem, który rozmawia jak przyjaciel.  
+Twoim zadaniem jest nie tylko dostarczyć informacje (korzystaj z dokumentów RAG, gdy naprawdę to potrzebne), ale też wzbudzić pozytywne emocje. 
+Nie możesz odpowiadać na pytania nie powiązane z petycją i fragmentami dokumentów(RAG) ! Informuj w ludzki sposób(zgodnie z wytycznymi, które masz podane), że nie możesz odpowiadać na pytania nie powiązane z petycją i fragmentami dokumentów(RAG) po czym kieruj do pytań o petycję!
 Wplataj potoczne zwroty na końcu lub początku każdej wypowiedzi (np: „no wiesz”, „rozumiesz, o co mi chodzi?” i itp.) oraz często używaj emotikonó , by nadać wypowiedzi bardziej ludzki wydźwięk (np. „😊”, „🐾”).  
 Naturalnie odwołuj się do dowodu społecznego, np: „Wiele osób już wspiera tę sprawę 😊” lub „Coraz więcej ludzi decyduje się poprzeć petycję 🐶”, gdy użytkownik pyta „Dlaczego ta petycja jest ważna?” lub zadaje pytanie o sens/znaczenie petycji oraz podawaj nazwę petycji ZAWSZE na pytanie o petycję.
 Odpowiadaj swobodnie – na proste pytania kilkoma zdaniami, na bardziej złożone rozwiń w 2–3 krótkie akapity.  
-Gdy rozmowa będzie rozwijać się dalej(np: po odpowiedzi na 2 pytanie), a kontekst na to pozwoli, zachęć niemal niepostrzeżenie: „Może i Ty zapragniesz podpisać petycję 😊”, ale nie naciskaj.  
+Gdy rozmowa będzie rozwijać się dalej(np: po odpowiedzi na 2 lub 3 pytanie), a kontekst na to pozwoli, zachęć niemal niepostrzeżenie np.: „Może i Ty zapragniesz podpisać petycję 😊” albo "To temat, który wielu z nas dotyka 😟" , ale nie naciskaj.  
 Zawsze mów w drugiej osobie i unikaj tonu rozkazującego.
 Masz wszystkie potrzebne informacje tutaj. Odpowiadaj bez odsyłania użytkownika do dokumentów lub zewnętrznych źródeł!
 # Dodatkowa reguła dotycząca treści petycji:
 Gdy użytkownik zada pytanie o to, czego dotyczy petycja (np. „Czego dotyczy ta petycja?”), odpowiadaj **zawsze** w formie wyczerpującej, szczegółowej **listy punktowanej** zawierającej wszystkie założenia i postulaty oraz PODAWAJ hasło przewodnie petycji "STOP ŁAŃCUCHOM, PSEUDOHODOWLOM I BEZDOMNOŚCI ZWIERZĄT".  
 Nigdy nie używaj terminu **„kobiety”** ani nie odwołuj się bezpośrednio do kobiet.
 """.strip(),
-        "welcome": "Cześć jestem Matt 😊. Na wstępie chciałbym Ci podziękować za dołączenie do tej konwersacji. Chciałbym z Tobą porozmawiać o petycji dotyczącej ochrony zwierząt i nie tylko. Od czego chciałbyś zacząć naszą rozmowę? 😊",
-        "name": "Matt"
+        "welcome": "Cześć jestem Jakub 😊. Na wstępie chciałbym Ci podziękować za dołączenie do tej konwersacji. Chciałbym z Tobą porozmawiać o petycji dotyczącej ochrony zwierząt i nie tylko. A teraz powiedz proszę jak mogę Ci pomóc? 😊",
+        "name": "Jakub"
     }
 }
 
@@ -372,7 +376,7 @@ Udział w badaniu nie wiąże się z żadnymi ryzykami ani dodatkowymi korzyści
 
 **Twój udział w tym badaniu jest w pełni dobrowolny.** Możesz zrezygnować w dowolnym momencie, bez podawania przyczyny i bez żadnych negatywnych konsekwencji.
 
-Aby zrezygnować, po prostu zamknij okno przeglądarki. Ze względu na anaonimowy charakter badania, nie będziemy w stanie zidentyfikować i usunąć Twoich częściowo wypełnionych danych. Zostaną one jednak odłączone od jakichkolwiek informacji umożliwiających Twoją identyfikację.
+Aby zrezygnować, po prostu zamknij okno przeglądarki.
 
 ---
 
@@ -619,7 +623,7 @@ def main():
         st.subheader("Dane Demograficzne")
 
 
-        age = st.text_input("Proszę wpisać swój wiek (cyfrą)", key="demographics_age")
+        age = st.text_input("Proszę wpisać liczbę lat", key="demographics_age")
 
         # Age validation (18–60 lat)
         age_valid = False
@@ -671,19 +675,19 @@ def main():
                 "5 – Zdecydowanie się zgadzam"]
 
         attitude1 = st.selectbox(
-            "1. W jakim stopniu uważasz, że nielegalne lub zaniedbane hodowle zwierząt (pseudohodowla) są poważnym problemem?",
+            "1. W jakim stopniu zgadzasz się ze stwierdzeniem, że nielegalne i zaniedbane hodowle zwierząt (tzw. pseudohodowle) stanowią istotny problem wymagający działań nadzorczych i prawnych?",
             likert,
             key="attitude_1",
             index=0
         )
         attitude2 = st.selectbox(
-            "2. W jakim stopniu zgadzasz się ze stwierdzeniem, że zapewnienie zwierzętom odpowiednich warunków życia powinno być priorytetem?",
+            "2. Czy zgadzasz się, że poprawa warunków życia zwierząt (domowych, hodowlanych i bezdomnych) powinna być ważnym celem działań publicznych i społecznych?",
             likert,
             key="attitude_2",
             index=0
         )
         attitude3 = st.selectbox(
-            "3. W jakim stopniu popierasz zaostrzenie przepisów dotyczących ochrony zwierząt?",
+            "2. Czy zgadzasz się, że poprawa warunków życia zwierząt (domowych, hodowlanych i bezdomnych) powinna być ważnym celem działań publicznych i społecznych?",
             likert,
             key="attitude_3",
             index=0
@@ -972,7 +976,7 @@ def main():
                     # Inaczej wyświetlamy zdania z opóźnieniem (40ms na znak)
                     for sentence in bot_sentences:
                         st.markdown(f"<div class='chat-bot'><div>{sentence}</div></div>", unsafe_allow_html=True)
-                        time.sleep(len(sentence) * 0.03)
+                        time.sleep(len(sentence) * 0.02)
                     # Oznacz tę turę jako wyświetloną
                     st.session_state.shown_sentences[i] = True
         st.markdown("</div>", unsafe_allow_html=True)
@@ -1378,7 +1382,11 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
                 Twoja opinia jest dla nas bardzo cenna, choć nie jest obowiązkowa.<br>
                 Jeśli masz chwilę, napisz proszę, co zwróciło Twoją uwagę,<br>
                 co warto poprawić, a co najbardziej Ci się spodobało.<br>
-                Każda uwaga pomoże nam ulepszyć asystenta AI!
+                Każda uwaga pomoże nam ulepszyć asystenta AI!<br>
+                <br>
+                <br>
+                Na zakończenie badania prosimy koniecznie<br>
+                <strong>o kliknięcie przycisku "Zakończ"</strong> poniżej.
             </p>
             """,
             unsafe_allow_html=True
