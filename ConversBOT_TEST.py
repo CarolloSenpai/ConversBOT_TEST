@@ -1256,7 +1256,7 @@ Prosimy o ocenę chatbota, z którym rozmawiałeś, na poniższej skali. Zaznacz
         st.markdown("""
         <div style="overflow-x: auto;">
           <table style="
-              min-width: 600px;
+              min-width: 400px;
               border-collapse: collapse;
               margin: 1rem auto;
               text-align: center;
