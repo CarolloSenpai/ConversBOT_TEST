@@ -794,18 +794,35 @@ def main():
         """)
 
         st.markdown("""
-        <div style="margin-top: 1rem; margin-bottom: 2rem;">
-            <strong>Skala ocen (1–7):</strong>
-            <ul style="padding-left: 1.2rem; line-height: 1.7; list-style: none;">
-                <li><strong>1</strong> – Zdecydowanie się nie zgadzam</li>
-                <li><strong>2</strong> – Raczej się nie zgadzam</li>
-                <li><strong>3</strong> – W niewielkim stopniu się nie zgadzam</li>
-                <li><strong>4</strong> – Ani się zgadzam, ani się nie zgadzam</li>
-                <li><strong>5</strong> – W niewielkim stopniu się zgadzam</li>
-                <li><strong>6</strong> – Raczej się zgadzam</li>
-                <li><strong>7</strong> – Zdecydowanie się zgadzam</li>
-            </ul>
-        </div>
+                    <table style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin: 1rem auto;
+                        text-align: center;
+                    ">
+                    <thead>
+                        <tr style="border-bottom:1px solid #ccc;">
+                            <th style="padding: 8px; text-align: center;">Zdecydowanie się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Raczej się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">W niewielkim stopniu się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Ani się zgadzam, ani się nie zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">W niewielkim stopniu się zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Raczej się zgadzam</th>
+                            <th style="padding: 8px; text-align: center;">Zdecydowanie się zgadzam</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <td style="padding: 8px; text-align: center;"><strong>1</strong></td>
+                        <td style="padding: 8px; text-align: center;"><strong>2</strong></td>
+                        <td style="padding: 8px; text-align: center;"><strong>3</strong></td>
+                        <td style="padding: 8px; text-align: center;"><strong>4</strong></td>
+                        <td style="padding: 8px; text-align: center;"><strong>5</strong></td>
+                        <td style="padding: 8px; text-align: center;"><strong>6</strong></td>
+                        <td style="padding: 8px; text-align: center;"><strong>7</strong></td>
+                        </tr>
+                    </tbody>
+                    </table>
         """, unsafe_allow_html=True)
 
 
