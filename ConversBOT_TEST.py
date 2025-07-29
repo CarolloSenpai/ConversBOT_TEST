@@ -1216,7 +1216,7 @@ def main():
                     
         ## Część 3 z 3
                     
-        **Zanim zakończysz badanie, prosimy o wypełnienie krótkiej ankiety dotyczącej chatbota.**"
+        **Zanim zakończysz badanie, prosimy o wypełnienie krótkiej ankiety dotyczącej chatbota.**
         """)
 
         st.markdown("---")
