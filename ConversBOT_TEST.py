@@ -934,7 +934,7 @@ def main():
                 ### Jak to działa?
 
                 **Rozmowa powinna potrwać co najmniej 3 minuty**. W trakcie których przycisk zakończenia badania będzie zablokowany.  
-                Po 3 minutach pojawi się przycisk **Przejdź do oceny rozmowy** – od tego momentu możesz zakończyć rozmowę w dowolnej chwili lub kontynuować ją maksymalnie do 10 minut.  
+                Po 3 minutach pojawi się przycisk **Przejdź do oceny rozmowy** – od tego momentu możesz zakończyć rozmowę w dowolnej chwili klikając ten przycisk 2 razy lub kontynuować ją maksymalnie do 10 minut.  
                 Po zakończeniu rozmowy poprosimy Cię o wypełnienie ostatniej części badania.
                 
                 ---
@@ -948,8 +948,14 @@ def main():
                 * *Jakie konkretnie problemy ma rozwiązać?*
                 * *Poproszę o streszczenie najważniejszych argumentów.*
                 * *Co pojawi się w ustawie?*
+                
+                ---
 
-                Gdy wszystko będzie jasne, kliknij przycisk poniżej. Powodzenia!
+                Prosimy o cierpliowść gdyż konwersacja może się chwilę ładować.
+
+                ---
+                
+                Gdy wszystko będzie jasne, kliknij przycisk poniżej 2 razy. Powodzenia!
             """, unsafe_allow_html=True)
 
             if st.button("Rozpocznij rozmowę z asystentem"):
