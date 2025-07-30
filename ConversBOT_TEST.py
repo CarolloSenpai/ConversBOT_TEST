@@ -690,7 +690,7 @@ def main():
             index=0
         )
         attitude3 = st.selectbox(
-            "2. Czy zgadzasz się, że poprawa warunków życia zwierząt (domowych, hodowlanych i bezdomnych) powinna być ważnym celem działań publicznych i społecznych?",
+            "3. Czy zgadzasz się ze stwierdzeniem, że potrzebne są bardziej restrykcyjne przepisy chroniące zwierzęta?",
             likert,
             key="attitude_3",
             index=0
