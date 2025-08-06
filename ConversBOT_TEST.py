@@ -633,12 +633,12 @@ def main():
         if age.strip() != "":
             try:
                 age_int = int(age)
-                if 18 <= age_int <= 60:
+                if 18 <= age_int <= 90:
                     age_valid = True
                 elif age_int < 18:
                     st.warning("Minimalny wiek uczestnictwa to 18 lat. Prosimy o opuszczenie strony.")
                 else:  # age_int > 60
-                    st.warning("Maksymalny wiek uczestnictwa to 60 lat. Prosimy o opuszczenie strony.")
+                    st.warning("Maksymalny wiek uczestnictwa to 90 lat. Prosimy o opuszczenie strony.")
             except ValueError:
                 st.error("Proszę wprowadzić poprawny wiek (liczbę).")
 
